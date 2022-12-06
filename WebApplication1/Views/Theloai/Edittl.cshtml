@@ -1,0 +1,36 @@
+﻿@model WebApplication1.Models.TheLoai
+
+<div class="Root__main-view">
+    <div class="main-view-container">
+        <div style="margin-top: 64px;">
+
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h1>Chỉnh sửa thể loại</h1>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.MaTL)
+
+                <div class="form-group">
+                    <label>Tên thể loại</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TenTL, new { htmlAttributes = new { @class = "form-control", required = true } })
+                        @Html.ValidationMessageFor(model => model.TenTL, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                @ViewBag.ok
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Lưu" class="btn-default" style="color: black" />
+                    </div>
+                </div>
+            </div>
+        }
+
+     
+    </div>
+</div>
